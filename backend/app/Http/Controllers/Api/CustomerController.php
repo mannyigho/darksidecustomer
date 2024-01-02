@@ -35,7 +35,6 @@ class CustomerController extends Controller
     {
         // Validate Input Parameters
         $validator = Validator::make($request->all(), [
-            "id" => 'required|digits:1',
             "name" => 'required|string|max:191',
             "email" => 'required|string|max:191',
             "phone" => 'required|string|max:15',
@@ -55,7 +54,7 @@ class CustomerController extends Controller
             $response = Storage::get("database/storage.json");
             $tempArray = json_decode($response);
 
-            $id = $request->id;
+            $id = 1;
             $name = $request->name;
             $email = $request->email;
             $phone = $request->phone;
@@ -84,9 +83,14 @@ class CustomerController extends Controller
 
                 return response()->json([
                     "status" => 201,
-                    "Message" => "New Customer Created!"
+                    "Message" => "New customer record created!",
+                    "data" => $data
                 ], 201);
             } elseif (!empty($tempArray[0]->id) && $tempArray[0]->id != $id) {
+
+                $customerData = Storage::get("database/storage.json");
+                $customers = json_decode($customerData);
+                $id = count($customers) + 1;
 
                 $data = [
                     "id" => $id,
@@ -107,7 +111,8 @@ class CustomerController extends Controller
 
                 return response()->json([
                     "status" => 201,
-                    "Message" => "New customer record created!"
+                    "Message" => "New customer record created!",
+                    "data" => $data
                 ], 201);
             } else {
                 // ID does exist

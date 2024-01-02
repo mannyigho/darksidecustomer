@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+        <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h1>Darkside Customers</h1>
         <table class="table table-hover">
             <thead>
@@ -9,6 +11,7 @@
                     <th scope="col">EMAIL</th>
                     <th scope="col">PHONE</th>
                     <th scope="col">ADDRESS</th>
+                    <th scope="col">ACTION</th>
                 </tr>
             </thead>
             <tbody v-for="customer in customers" :key="customer.id">
@@ -18,9 +21,12 @@
                     <td scope="row">{{ customer.email }}</td>
                     <td scope="row">{{ customer.phone }}</td>
                     <td scope="row">{{ customer.address }}</td>
+                    <td scope="row"><button class="btn btn-xs btn-danger" @click.prevent="deleteCustomer(customer.id)">Delete</button></td>
                 </tr>
             </tbody>
         </table>
+    </div>
+    </div>
     </div>
 </template>
 
@@ -45,10 +51,22 @@ export default{
             }).catch(error => {
                 console.log(error);
             });
+        },
+        async deleteCustomer(id){
+            let url = `http://localhost:8001/api/customer/${id}/delete`;
+            await axios.delete(url).then((response) => {
+                console.log(response);
+                if(response.status == 200) {
+                    alert(response.data.Message);
+                    this.getCustomers();
+                }
+            }).catch(error => {
+                console.log(error);
+            });
         }
     },
     mounted() {
-        //console.log("Customers list component mounted");
+       
     }
 }
 </script>
