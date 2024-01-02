@@ -10,18 +10,12 @@
                   <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                       <li class="nav-item">
-                        <router-link class="nav-link active" to="/customers">View Customers
+                        <router-link class="nav-link active" to="/customers">View All Customers
                           <span class="visually-hidden">(current)</span>
                         </router-link>
                       </li>
                       <li class="nav-item">
                         <router-link class="nav-link" to="/create">Add Customer</router-link>
-                      </li>
-                      <li class="nav-item">
-                        <router-link class="nav-link" to="/edit">Edit Customer</router-link>
-                      </li>
-                      <li class="nav-item">
-                        <router-link class="nav-link" to="/delete">Delete Customer</router-link>
                       </li>
                     </ul>
                   </div>

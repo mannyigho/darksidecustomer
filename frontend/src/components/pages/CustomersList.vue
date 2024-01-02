@@ -21,7 +21,10 @@
                     <td scope="row">{{ customer.email }}</td>
                     <td scope="row">{{ customer.phone }}</td>
                     <td scope="row">{{ customer.address }}</td>
-                    <td scope="row"><button class="btn btn-xs btn-danger" @click.prevent="deleteCustomer(customer.id)">Delete</button></td>
+                    <td scope="row">
+                        <router-link class="btn btn-xs btn-secondary" :to="{name: 'CustomerEdit', params: {id: customer.id}}">Edit</router-link>&nbsp;&nbsp;
+                        <button class="btn btn-xs btn-danger" @click.prevent="deleteCustomer(customer.id)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
