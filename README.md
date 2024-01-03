@@ -3,7 +3,7 @@ darksidecustomer
 
 ## Description
 
-This is very simple and basic CRUD application that utilizes the PHP Laravel framework for backend functionality  and Vue JS 3 for frontend functionality. The APP provides the user with the ability fot create a new customer, update a customer record, delete a customer record and view all customers records in a single view.
+This is a very simple and basic CRUD application that utilizes the PHP Laravel framework for backend functionality  and Vue JS 3 for frontend functionality. The APP provides the user with the ability to create a new customer, update a customer record, delete a customer record and view all customers records in a single view.
 
 ## Project Structure
 
