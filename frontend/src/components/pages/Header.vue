@@ -10,7 +10,7 @@
                   <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                       <li class="nav-item">
-                        <router-link class="nav-link active" to="/customers">View All Customers
+                        <router-link class="nav-link active" to="/customers">All Customers
                           <span class="visually-hidden">(current)</span>
                         </router-link>
                       </li>
